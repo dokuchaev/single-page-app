@@ -113,7 +113,7 @@ class App extends React.Component {
 
 const config = {
     /* HighchartsConfig */
-  
+
     xAxis: {
         categories: [
             '21Jul',
@@ -154,7 +154,8 @@ const config = {
                 200,
                 100
             ],
-            type: 'spline'
+            type: 'spline',
+            color: "#ffc107"
         }
 
     ]

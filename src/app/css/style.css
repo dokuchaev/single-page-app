@@ -16,6 +16,8 @@ td:first-child{
 table{border-collapse:collapse;font-size: 14px;}
 th{
   text-align: center;
+  padding: 10px 0;
+    background: #e2f6ff;
 }
 td{
 border-top: 1px solid #aaa;

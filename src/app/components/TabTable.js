@@ -20,7 +20,7 @@ export class TabTable extends React.Component {
                     <tbody>
                         {this.props.TableData.map((link, index) => <tr key={index}>
                             <td>{link.source_title}&nbsp;
-                                <a href={link.source_url}>
+                                <a href={link.source_url} target="_blank">
                                      {link.source_url}</a>
                             </td>
                             <td>{link.domains_num}</td>
