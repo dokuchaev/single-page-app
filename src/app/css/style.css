@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic-ext');
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+.app-wrapper{
+  width: 800px;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid #aaa;
+}
+
+td:first-child{
+  width: 10%;
+  text-align: left;
+}
+table{border-collapse:collapse;font-size: 14px;}
+th{
+  text-align: center;
+}
+td{
+border-top: 1px solid #aaa;
+padding: 6px 0;
+text-align: center;
+}
+.react-tabs [role=tablist]{
+  padding-left: 20px;
+margin-left: -20px;
+margin-right: -20px;
+}
