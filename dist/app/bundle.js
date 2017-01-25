@@ -240,7 +240,8 @@
 	    }, {
 	        "name": "amazon.com",
 	        "data": [600, 500, 500, 400, 300, 200, 100],
-	        type: 'spline'
+	        type: 'spline',
+	        color: "#ffc107"
 	    }]
 	};
 	(0, _reactDom.render)(_react2.default.createElement(App, null), window.document.getElementById("app"));
@@ -23714,7 +23715,7 @@
 	                                    "\xA0",
 	                                    _react2.default.createElement(
 	                                        "a",
-	                                        { href: link.source_url },
+	                                        { href: link.source_url, target: "_blank" },
 	                                        link.source_url
 	                                    )
 	                                ),
@@ -23994,7 +23995,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic-ext);", ""]);
 	
 	// module
-	exports.push([module.id, "body{\n  font-family: 'Open Sans', sans-serif;\n}\n.app-wrapper{\n  width: 800px;\n  margin: 30px;\n  padding: 20px;\n  border: 1px solid #aaa;\n}\n\ntd:first-child{\n  width: 10%;\n  text-align: left;\n}\ntable{border-collapse:collapse;font-size: 14px;}\nth{\n  text-align: center;\n}\ntd{\nborder-top: 1px solid #aaa;\npadding: 6px 0;\ntext-align: center;\n}\n.react-tabs [role=tablist]{\n  padding-left: 20px;\nmargin-left: -20px;\nmargin-right: -20px;\n}\n", ""]);
+	exports.push([module.id, "body{\n  font-family: 'Open Sans', sans-serif;\n}\n.app-wrapper{\n  width: 800px;\n  margin: 30px;\n  padding: 20px;\n  border: 1px solid #aaa;\n}\n\ntd:first-child{\n  width: 10%;\n  text-align: left;\n}\ntable{border-collapse:collapse;font-size: 14px;}\nth{\n  text-align: center;\n  padding: 10px 0;\n    background: #e2f6ff;\n}\ntd{\nborder-top: 1px solid #aaa;\npadding: 6px 0;\ntext-align: center;\n}\n.react-tabs [role=tablist]{\n  padding-left: 20px;\nmargin-left: -20px;\nmargin-right: -20px;\n}\n", ""]);
 	
 	// exports
 
