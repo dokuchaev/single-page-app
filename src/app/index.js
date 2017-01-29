@@ -65,7 +65,6 @@ const config = {
         ],
         crosshair: true
     },
-
     tooltip: {
         shared: true
     },
