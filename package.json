@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "ReactJS Basic",
   "main": "index.js",
-  
   "scripts": {
     "start": "npm run build",
     "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot --watch",
@@ -27,6 +26,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "css-loader": "^0.26.1",
     "highcharts": "^5.0.7",
+    "json-loader": "^0.5.4",
     "react-highcharts": "^11.5.0",
     "react-native-highcharts": "^0.1.1",
     "react-tabs": "^0.8.2",

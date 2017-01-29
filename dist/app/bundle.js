@@ -67,6 +67,10 @@
 	
 	var _TabTable = __webpack_require__(/*! ./components/TabTable */ 191);
 	
+	var _data = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"data.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _data2 = _interopRequireDefault(_data);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -74,6 +78,9 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// import Metrics from "./api/metrics";
+	var libraries = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"data.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	__webpack_require__(/*! ./css/style.css */ 193);
 	
@@ -89,11 +96,11 @@
 	    _createClass(App, [{
 	        key: "render",
 	        value: function render() {
-	            var tab1 = {
-	                "title": "Yep",
-	                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!"
-	            },
-	                TableData = [{
+	            // var tab1 = {
+	            //         "title": "Yep",
+	            //         "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!"
+	            //     },
+	            var TableData = [{
 	                "rank": 41032,
 	                "backlinks_num": 3971886,
 	                "domains_num": 28513,

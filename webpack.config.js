@@ -25,7 +25,8 @@ var config = {
           test: /\.css?/,
           include: SRC_DIR,
           loader: "style-loader!css-loader"
-        }
+        },
+        {test: /\.json$/, loader: "json"}
       ]
     }
 };
