@@ -67,9 +67,17 @@
 	
 	var _TabTable = __webpack_require__(/*! ./components/TabTable */ 191);
 	
-	var _data = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"data.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _tabOne = __webpack_require__(/*! ./data/tabOne.json */ 193);
 	
-	var _data2 = _interopRequireDefault(_data);
+	var _tabOne2 = _interopRequireDefault(_tabOne);
+	
+	var _table = __webpack_require__(/*! ./data/table.json */ 194);
+	
+	var _table2 = _interopRequireDefault(_table);
+	
+	var _chart = __webpack_require__(/*! ./data/chart.json */ 195);
+	
+	var _chart2 = _interopRequireDefault(_chart);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -79,10 +87,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// import Metrics from "./api/metrics";
-	var libraries = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"data.json\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	
-	__webpack_require__(/*! ./css/style.css */ 193);
+	__webpack_require__(/*! ./css/style.css */ 196);
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -96,75 +101,13 @@
 	    _createClass(App, [{
 	        key: "render",
 	        value: function render() {
-	            // var tab1 = {
-	            //         "title": "Yep",
-	            //         "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!"
-	            //     },
-	            var TableData = [{
-	                "rank": 41032,
-	                "backlinks_num": 3971886,
-	                "domains_num": 28513,
-	                "last_seen": 1432740046,
-	                "external_link_num": 160,
-	                "internal_link_num": 274,
-	                "source_url": "http://www.ebay.com/",
-	                "source_title": "Electronics, Cars, Fashion, Collectibles, Coupons and More | eBay"
-	            }, {
-	                "rank": 22393,
-	                "backlinks_num": 391045,
-	                "domains_num": 316,
-	                "last_seen": 1471935176,
-	                "external_link_num": 8,
-	                "internal_link_num": 475,
-	                "source_url": "http://deals.ebay.com/",
-	                "source_title": "eBay Daily Deals: Best Deals of the Day - Plus Free Shipping!"
-	            }, {
-	                "rank": 16780,
-	                "backlinks_num": 319002,
-	                "domains_num": 286,
-	                "last_seen": 1475181228,
-	                "external_link_num": 43,
-	                "internal_link_num": 91,
-	                "source_url": "http://pages.ebay.com/help/policies/privacy-policy.html",
-	                "source_title": "Privacy Policy"
-	            }, {
-	                "rank": 21993,
-	                "backlinks_num": 298895,
-	                "domains_num": 262,
-	                "last_seen": 1475789513,
-	                "external_link_num": 4,
-	                "internal_link_num": 113,
-	                "source_url": "http://pages.ebay.com/help/policies/user-agreement.html",
-	                "source_title": "eBay User Agreement"
-	            }, {
-	                "rank": 16673,
-	                "backlinks_num": 296101,
-	                "domains_num": 230,
-	                "last_seen": 1473680363,
-	                "external_link_num": 140,
-	                "internal_link_num": 72,
-	                "source_url": "http://pages.ebay.com/sitemap.html",
-	                "source_title": "eBay Sitemap"
-	            }, {
-	                "rank": 17938,
-	                "backlinks_num": 294377,
-	                "domains_num": 280,
-	                "last_seen": 1473645524,
-	                "external_link_num": 2,
-	                "internal_link_num": 44,
-	                "source_url": "http://resolutioncenter.ebay.com/",
-	                "source_title": "Resolution Center - eBay"
-	            }, {
-	                "rank": 16291,
-	                "backlinks_num": 294020,
-	                "domains_num": 206,
-	                "last_seen": 1422953905,
-	                "external_link_num": 31,
-	                "internal_link_num": 26,
-	                "source_url": "http://pages.ebay.com/securitycenter/index.html",
-	                "source_title": "eBay Security Center: Welcome"
-	            }];
 	
+	            var tab1 = {
+	                data: _tabOne2.default
+	            },
+	                TableData = {
+	                data: _table2.default
+	            };
 	            return _react2.default.createElement(
 	                "div",
 	                { className: "app-wrapper" },
@@ -203,12 +146,12 @@
 	                    _react2.default.createElement(
 	                        _reactTabs.TabPanel,
 	                        null,
-	                        _react2.default.createElement(_TabOne.TabOne, { title: "", text: "", tab1: tab1 })
+	                        _react2.default.createElement(_TabOne.TabOne, { title: "", text: "", tab1: _tabOne2.default })
 	                    ),
 	                    _react2.default.createElement(
 	                        _reactTabs.TabPanel,
 	                        null,
-	                        _react2.default.createElement(_TabTable.TabTable, { TableData: TableData })
+	                        _react2.default.createElement(_TabTable.TabTable, { TableData: _table2.default })
 	                    ),
 	                    _react2.default.createElement(
 	                        _reactTabs.TabPanel,
@@ -219,7 +162,7 @@
 	                        _reactTabs.TabPanel,
 	                        null,
 	                        _react2.default.createElement(_reactHighcharts2.default, { config: config }),
-	                        _react2.default.createElement(_TabTable.TabTable, { TableData: TableData })
+	                        _react2.default.createElement(_TabTable.TabTable, { TableData: _table2.default })
 	                    )
 	                )
 	            );
@@ -231,25 +174,14 @@
 	
 	var config = {
 	    /* HighchartsConfig */
-	
 	    xAxis: {
 	        categories: ['21Jul', '28Jul', '4Aug', '11Aug', '25Aug', '1Sep', '08Sep'],
 	        crosshair: true
 	    },
-	
 	    tooltip: {
 	        shared: true
 	    },
-	    series: [{
-	        "name": "ebay.com",
-	        "data": [100, 200, 300, 400, 500, 500, 600],
-	        type: 'spline'
-	    }, {
-	        "name": "amazon.com",
-	        "data": [600, 500, 500, 400, 300, 200, 100],
-	        type: 'spline',
-	        color: "#ffc107"
-	    }]
+	    series: _chart2.default
 	};
 	(0, _reactDom.render)(_react2.default.createElement(App, null), window.document.getElementById("app"));
 
@@ -23963,6 +23895,114 @@
 
 /***/ },
 /* 193 */
+/*!**********************************!*\
+  !*** ./src/app/data/tabOne.json ***!
+  \**********************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = {
+		"title": "Yep",
+		"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!"
+	};
+
+/***/ },
+/* 194 */
+/*!*********************************!*\
+  !*** ./src/app/data/table.json ***!
+  \*********************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = [{
+		"rank": 41032,
+		"backlinks_num": 3971886,
+		"domains_num": 28513,
+		"last_seen": 1432740046,
+		"external_link_num": 160,
+		"internal_link_num": 274,
+		"source_url": "http://www.ebay.com/",
+		"source_title": "Electronics, Cars, Fashion, Collectibles, Coupons and More | eBay"
+	}, {
+		"rank": 22393,
+		"backlinks_num": 391045,
+		"domains_num": 316,
+		"last_seen": 1471935176,
+		"external_link_num": 8,
+		"internal_link_num": 475,
+		"source_url": "http://deals.ebay.com/",
+		"source_title": "eBay Daily Deals: Best Deals of the Day - Plus Free Shipping!"
+	}, {
+		"rank": 16780,
+		"backlinks_num": 319002,
+		"domains_num": 286,
+		"last_seen": 1475181228,
+		"external_link_num": 43,
+		"internal_link_num": 91,
+		"source_url": "http://pages.ebay.com/help/policies/privacy-policy.html",
+		"source_title": "Privacy Policy"
+	}, {
+		"rank": 21993,
+		"backlinks_num": 298895,
+		"domains_num": 262,
+		"last_seen": 1475789513,
+		"external_link_num": 4,
+		"internal_link_num": 113,
+		"source_url": "http://pages.ebay.com/help/policies/user-agreement.html",
+		"source_title": "eBay User Agreement"
+	}, {
+		"rank": 16673,
+		"backlinks_num": 296101,
+		"domains_num": 230,
+		"last_seen": 1473680363,
+		"external_link_num": 140,
+		"internal_link_num": 72,
+		"source_url": "http://pages.ebay.com/sitemap.html",
+		"source_title": "eBay Sitemap"
+	}, {
+		"rank": 17938,
+		"backlinks_num": 294377,
+		"domains_num": 280,
+		"last_seen": 1473645524,
+		"external_link_num": 2,
+		"internal_link_num": 44,
+		"source_url": "http://resolutioncenter.ebay.com/",
+		"source_title": "Resolution Center - eBay"
+	}, {
+		"rank": 16291,
+		"backlinks_num": 294020,
+		"domains_num": 206,
+		"last_seen": 1422953905,
+		"external_link_num": 31,
+		"internal_link_num": 26,
+		"source_url": "http://pages.ebay.com/securitycenter/index.html",
+		"source_title": "eBay Security Center: Welcome"
+	}];
+
+/***/ },
+/* 195 */
+/*!*********************************!*\
+  !*** ./src/app/data/chart.json ***!
+  \*********************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	module.exports = [{
+		"name": "ebay.com",
+		"data": [100, 200, 300, 400, 500, 500, 600],
+		"type": "spline"
+	}, {
+		"name": "amazon.com",
+		"data": [600, 500, 500, 400, 300, 200, 100],
+		"type": "spline",
+		"color": "#ffc107"
+	}];
+
+/***/ },
+/* 196 */
 /*!*******************************!*\
   !*** ./src/app/css/style.css ***!
   \*******************************/
@@ -23971,10 +24011,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./style.css */ 194);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./style.css */ 197);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 196)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 199)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -23991,13 +24031,13 @@
 	}
 
 /***/ },
-/* 194 */
+/* 197 */
 /*!**********************************************!*\
   !*** ./~/css-loader!./src/app/css/style.css ***!
   \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 195)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 198)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic-ext);", ""]);
 	
@@ -24008,7 +24048,7 @@
 
 
 /***/ },
-/* 195 */
+/* 198 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -24067,7 +24107,7 @@
 
 
 /***/ },
-/* 196 */
+/* 199 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
