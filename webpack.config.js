@@ -21,12 +21,17 @@ var config = {
             presets: ["react", "es2015", "stage-2"]
           }
         },
+        // {
+        //   test: /\.css?/,
+        //   include: SRC_DIR,
+        //   loader: "style-loader!css-loader"
+        // },
+        {test: /\.json$/, loader: "json"},
         {
-          test: /\.css?/,
-          include: SRC_DIR,
-          loader: "style-loader!css-loader"
-        },
-        {test: /\.json$/, loader: "json"}
+              test:   /\.css$/,
+              loader: "style-loader!css-loader!postcss-loader"
+          }
+
       ]
     }
 };

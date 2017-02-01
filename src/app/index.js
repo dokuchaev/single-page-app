@@ -2,48 +2,45 @@ import React from "react";
 import {render} from "react-dom";
 import ReactHighcharts from 'react-highcharts';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
-import {TabOne} from "./components/TabOne";
+import {TabMain} from "./components/TabMain";
 import {TabTable} from "./components/TabTable";
-import tabOneData from './data/tabOne.json';
+import mainData from './data/main.json';
 import tableData from './data/table.json';
-import chartData from './data/chart.json';
+import widgetData from './data/widget.json';
 require("./css/style.css");
 
 class App extends React.Component {
 
     render() {
-
-        var tab1 = {
-                data: tabOneData
+        var TabMainData = {
+                data: mainData
             },
-            TableData = {
+            TabTableData = {
                 data: tableData
             }
         return (
             <div className="app-wrapper">
                 <h1>Single Page App</h1>
                 <Tabs onSelect={this.handleSelect} selectedIndex={0}>
-
                     <TabList>
                         <Tab>Main</Tab>
+                        <Tab>Widget</Tab>
                         <Tab>Table</Tab>
-                        <Tab>Chart</Tab>
                         <Tab>Report</Tab>
                     </TabList>
 
                     <TabPanel>
-                        <TabOne title={""} text={""} tab1={tabOneData}/>
-                    </TabPanel>
-                    <TabPanel>
-                        <TabTable TableData={tableData}/>
+                        <TabMain title={""} text={""} TabMainData={mainData}/>
                     </TabPanel>
                     <TabPanel>
                         <ReactHighcharts config={config}></ReactHighcharts>
                     </TabPanel>
-
+                    <TabPanel>
+                        <TabTable TabTableData={tableData}/>
+                    </TabPanel>
                     <TabPanel>
                         <ReactHighcharts config={config}></ReactHighcharts>
-                        <TabTable TableData={tableData}/>
+                        <TabTable TabTableData={tableData}/>
                     </TabPanel>
                 </Tabs>
             </div>
@@ -52,7 +49,9 @@ class App extends React.Component {
 }
 
 const config = {
+
     /* HighchartsConfig */
+    title: "",
     xAxis: {
         categories: [
             '21Jul',
@@ -66,9 +65,10 @@ const config = {
         crosshair: true
     },
     tooltip: {
-        shared: true
+        shared: true,
+        title: "12"
     },
-    series: chartData
+    series: widgetData
 };
 render(
     <App/>, window.document.getElementById("app"));

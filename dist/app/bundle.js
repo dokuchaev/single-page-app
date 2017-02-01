@@ -63,21 +63,21 @@
 	
 	var _reactTabs = __webpack_require__(/*! react-tabs */ 180);
 	
-	var _TabOne = __webpack_require__(/*! ./components/TabOne */ 190);
+	var _TabMain = __webpack_require__(/*! ./components/TabMain */ 190);
 	
 	var _TabTable = __webpack_require__(/*! ./components/TabTable */ 191);
 	
-	var _tabOne = __webpack_require__(/*! ./data/tabOne.json */ 193);
+	var _main = __webpack_require__(/*! ./data/main.json */ 196);
 	
-	var _tabOne2 = _interopRequireDefault(_tabOne);
+	var _main2 = _interopRequireDefault(_main);
 	
-	var _table = __webpack_require__(/*! ./data/table.json */ 194);
+	var _table = __webpack_require__(/*! ./data/table.json */ 197);
 	
 	var _table2 = _interopRequireDefault(_table);
 	
-	var _chart = __webpack_require__(/*! ./data/chart.json */ 195);
+	var _widget = __webpack_require__(/*! ./data/widget.json */ 198);
 	
-	var _chart2 = _interopRequireDefault(_chart);
+	var _widget2 = _interopRequireDefault(_widget);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -87,7 +87,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	__webpack_require__(/*! ./css/style.css */ 196);
+	__webpack_require__(/*! ./css/style.css */ 199);
 	
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -101,11 +101,10 @@
 	    _createClass(App, [{
 	        key: "render",
 	        value: function render() {
-	
-	            var tab1 = {
-	                data: _tabOne2.default
+	            var TabMainData = {
+	                data: _main2.default
 	            },
-	                TableData = {
+	                TabTableData = {
 	                data: _table2.default
 	            };
 	            return _react2.default.createElement(
@@ -130,12 +129,12 @@
 	                        _react2.default.createElement(
 	                            _reactTabs.Tab,
 	                            null,
-	                            "Table"
+	                            "Widget"
 	                        ),
 	                        _react2.default.createElement(
 	                            _reactTabs.Tab,
 	                            null,
-	                            "Chart"
+	                            "Table"
 	                        ),
 	                        _react2.default.createElement(
 	                            _reactTabs.Tab,
@@ -146,12 +145,7 @@
 	                    _react2.default.createElement(
 	                        _reactTabs.TabPanel,
 	                        null,
-	                        _react2.default.createElement(_TabOne.TabOne, { title: "", text: "", tab1: _tabOne2.default })
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactTabs.TabPanel,
-	                        null,
-	                        _react2.default.createElement(_TabTable.TabTable, { TableData: _table2.default })
+	                        _react2.default.createElement(_TabMain.TabMain, { title: "", text: "", TabMainData: _main2.default })
 	                    ),
 	                    _react2.default.createElement(
 	                        _reactTabs.TabPanel,
@@ -161,8 +155,13 @@
 	                    _react2.default.createElement(
 	                        _reactTabs.TabPanel,
 	                        null,
+	                        _react2.default.createElement(_TabTable.TabTable, { TabTableData: _table2.default })
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactTabs.TabPanel,
+	                        null,
 	                        _react2.default.createElement(_reactHighcharts2.default, { config: config }),
-	                        _react2.default.createElement(_TabTable.TabTable, { TableData: _table2.default })
+	                        _react2.default.createElement(_TabTable.TabTable, { TabTableData: _table2.default })
 	                    )
 	                )
 	            );
@@ -173,15 +172,18 @@
 	}(_react2.default.Component);
 	
 	var config = {
+	
 	    /* HighchartsConfig */
+	    title: "",
 	    xAxis: {
 	        categories: ['21Jul', '28Jul', '4Aug', '11Aug', '25Aug', '1Sep', '08Sep'],
 	        crosshair: true
 	    },
 	    tooltip: {
-	        shared: true
+	        shared: true,
+	        title: "12"
 	    },
-	    series: _chart2.default
+	    series: _widget2.default
 	};
 	(0, _reactDom.render)(_react2.default.createElement(App, null), window.document.getElementById("app"));
 
@@ -23498,9 +23500,9 @@
 
 /***/ },
 /* 190 */
-/*!**************************************!*\
-  !*** ./src/app/components/TabOne.js ***!
-  \**************************************/
+/*!***************************************!*\
+  !*** ./src/app/components/TabMain.js ***!
+  \***************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23508,7 +23510,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.TabOne = undefined;
+	exports.TabMain = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -23524,16 +23526,16 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var TabOne = exports.TabOne = function (_React$Component) {
-	    _inherits(TabOne, _React$Component);
+	var TabMain = exports.TabMain = function (_React$Component) {
+	    _inherits(TabMain, _React$Component);
 	
-	    function TabOne() {
-	        _classCallCheck(this, TabOne);
+	    function TabMain() {
+	        _classCallCheck(this, TabMain);
 	
-	        return _possibleConstructorReturn(this, (TabOne.__proto__ || Object.getPrototypeOf(TabOne)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (TabMain.__proto__ || Object.getPrototypeOf(TabMain)).apply(this, arguments));
 	    }
 	
-	    _createClass(TabOne, [{
+	    _createClass(TabMain, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -23542,18 +23544,18 @@
 	                _react2.default.createElement(
 	                    "h2",
 	                    null,
-	                    this.props.tab1.title
+	                    this.props.TabMainData.title
 	                ),
 	                _react2.default.createElement(
 	                    "p",
 	                    null,
-	                    this.props.tab1.text
+	                    this.props.TabMainData.text
 	                )
 	            );
 	        }
 	    }]);
 	
-	    return TabOne;
+	    return TabMain;
 	}(_react2.default.Component);
 
 /***/ },
@@ -23563,7 +23565,7 @@
   \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -23580,6 +23582,10 @@
 	
 	var _reactTimestamp2 = _interopRequireDefault(_reactTimestamp);
 	
+	var _reactFontawesome = __webpack_require__(/*! react-fontawesome */ 193);
+	
+	var _reactFontawesome2 = _interopRequireDefault(_reactFontawesome);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23587,6 +23593,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var NumberFormat = __webpack_require__(/*! react-number-format */ 195);
 	
 	var TabTable = exports.TabTable = function (_React$Component) {
 	    _inherits(TabTable, _React$Component);
@@ -23598,85 +23606,90 @@
 	    }
 	
 	    _createClass(TabTable, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
-	            console.log("TabTable", this.props.TableData);
+	
+	            console.log("TabTable", this.props.TabTableData);
 	            return _react2.default.createElement(
-	                "div",
+	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    "table",
-	                    { className: "table" },
+	                    'table',
+	                    { className: 'table' },
 	                    _react2.default.createElement(
-	                        "thead",
+	                        'thead',
 	                        null,
 	                        _react2.default.createElement(
-	                            "tr",
+	                            'tr',
 	                            null,
 	                            _react2.default.createElement(
-	                                "th",
+	                                'th',
 	                                null,
-	                                "Title and URL"
+	                                'Title and URL'
 	                            ),
 	                            _react2.default.createElement(
-	                                "th",
+	                                'th',
 	                                null,
-	                                "Domains"
+	                                'Domains'
 	                            ),
 	                            _react2.default.createElement(
-	                                "th",
+	                                'th',
 	                                null,
-	                                "External Links"
+	                                'External Links'
 	                            ),
 	                            _react2.default.createElement(
-	                                "th",
+	                                'th',
 	                                null,
-	                                "Internal Links"
+	                                'Internal Links'
 	                            ),
 	                            _react2.default.createElement(
-	                                "th",
+	                                'th',
 	                                null,
-	                                "Last Seen"
+	                                'Last Seen'
 	                            )
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "tbody",
+	                        'tbody',
 	                        null,
-	                        this.props.TableData.map(function (link, index) {
+	                        this.props.TabTableData.map(function (link, index) {
 	                            return _react2.default.createElement(
-	                                "tr",
+	                                'tr',
 	                                { key: index },
 	                                _react2.default.createElement(
-	                                    "td",
+	                                    'td',
 	                                    null,
-	                                    link.source_title,
-	                                    "\xA0",
 	                                    _react2.default.createElement(
-	                                        "a",
-	                                        { href: link.source_url, target: "_blank" },
-	                                        link.source_url
+	                                        'p',
+	                                        null,
+	                                        link.source_title
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'a',
+	                                        { href: link.source_url, target: '_blank' },
+	                                        link.source_url,
+	                                        _react2.default.createElement(_reactFontawesome2.default, { name: 'external-link' })
 	                                    )
 	                                ),
 	                                _react2.default.createElement(
-	                                    "td",
-	                                    null,
-	                                    link.domains_num
+	                                    'td',
+	                                    { className: 'center' },
+	                                    _react2.default.createElement(NumberFormat, { value: link.domains_num, className: 'f__color', displayType: 'text', thousandSeparator: true })
 	                                ),
 	                                _react2.default.createElement(
-	                                    "td",
+	                                    'td',
 	                                    null,
 	                                    link.external_link_num
 	                                ),
 	                                _react2.default.createElement(
-	                                    "td",
+	                                    'td',
 	                                    null,
 	                                    link.internal_link_num
 	                                ),
 	                                _react2.default.createElement(
-	                                    "td",
+	                                    'td',
 	                                    null,
-	                                    _react2.default.createElement(_reactTimestamp2.default, { time: link.last_seen, format: "date" })
+	                                    _react2.default.createElement(_reactTimestamp2.default, { time: link.last_seen, format: 'date' })
 	                                )
 	                            );
 	                        })
@@ -23895,20 +23908,469 @@
 
 /***/ },
 /* 193 */
-/*!**********************************!*\
-  !*** ./src/app/data/tabOne.json ***!
-  \**********************************/
+/*!******************************************!*\
+  !*** ./~/react-fontawesome/lib/index.js ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _screenReaderStyles = __webpack_require__(/*! ./screen-reader-styles */ 194);
+	
+	var _screenReaderStyles2 = _interopRequireDefault(_screenReaderStyles);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	/**
+	 * A React component for the font-awesome icon library.
+	 *
+	 *
+	 * @param {String} [ariaLabel] An extra accessibility label to put on the icon
+	 * @param {Boolean} [border=false] Whether or not to show a border radius
+	 * @param {String} [className] An extra set of CSS classes to add to the component
+	 * @param {Object} [cssModule] Option to pass FontAwesome CSS as a module
+	 * @param {Boolean} [fixedWidth=false] Make buttons fixed width
+	 * @param {String} [flip=false] Flip the icon's orientation.
+	 * @param {Boolean} [inverse=false]Inverse the icon's color
+	 * @param {String} name Name of the icon to use
+	 * @param {Boolean} [pulse=false] Rotate icon with 8 steps (rather than smoothly)
+	 * @param {Number} [rotate] The degress to rotate the icon by
+	 * @param {String} [size] The icon scaling size
+	 * @param {Boolean} [spin=false] Spin the icon
+	 * @param {String} [stack] Stack an icon on top of another
+	 * @param {String} [tag=span] The HTML tag to use as a string (eg 'i' or 'em')
+	 * @module FontAwesome
+	 * @type {ReactClass}
+	 */
+	exports.default = _react2.default.createClass({
+	
+	  displayName: 'FontAwesome',
+	
+	  propTypes: {
+	    ariaLabel: _react2.default.PropTypes.string,
+	    border: _react2.default.PropTypes.bool,
+	    className: _react2.default.PropTypes.string,
+	    cssModule: _react2.default.PropTypes.object,
+	    fixedWidth: _react2.default.PropTypes.bool,
+	    flip: _react2.default.PropTypes.oneOf(['horizontal', 'vertical']),
+	    inverse: _react2.default.PropTypes.bool,
+	    name: _react2.default.PropTypes.string.isRequired,
+	    pulse: _react2.default.PropTypes.bool,
+	    rotate: _react2.default.PropTypes.oneOf([90, 180, 270]),
+	    size: _react2.default.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+	    spin: _react2.default.PropTypes.bool,
+	    stack: _react2.default.PropTypes.oneOf(['1x', '2x']),
+	    tag: _react2.default.PropTypes.string
+	  },
+	
+	  render: function render() {
+	    var _props = this.props;
+	    var border = _props.border;
+	    var cssModule = _props.cssModule;
+	    var className = _props.className;
+	    var fixedWidth = _props.fixedWidth;
+	    var flip = _props.flip;
+	    var inverse = _props.inverse;
+	    var name = _props.name;
+	    var pulse = _props.pulse;
+	    var rotate = _props.rotate;
+	    var size = _props.size;
+	    var spin = _props.spin;
+	    var stack = _props.stack;
+	    var _props$tag = _props.tag;
+	    var tag = _props$tag === undefined ? 'span' : _props$tag;
+	    var ariaLabel = _props.ariaLabel;
+	
+	    var props = _objectWithoutProperties(_props, ['border', 'cssModule', 'className', 'fixedWidth', 'flip', 'inverse', 'name', 'pulse', 'rotate', 'size', 'spin', 'stack', 'tag', 'ariaLabel']);
+	
+	    var classNames = [];
+	
+	    if (cssModule) {
+	      classNames.push(cssModule['fa']);
+	      classNames.push(cssModule['fa-' + name]);
+	      size && classNames.push(cssModule['fa-' + size]);
+	      spin && classNames.push(cssModule['fa-spin']);
+	      pulse && classNames.push(cssModule['fa-pulse']);
+	      border && classNames.push(cssModule['fa-border']);
+	      fixedWidth && classNames.push(cssModule['fa-fw']);
+	      inverse && classNames.push(cssModule['fa-inverse']);
+	      flip && classNames.push(cssModule['fa-flip-' + flip]);
+	      rotate && classNames.push(cssModule['fa-rotate-' + rotate]);
+	      stack && classNames.push(cssModule['fa-stack-' + stack]);
+	    } else {
+	      classNames.push('fa');
+	      classNames.push('fa-' + name);
+	      size && classNames.push('fa-' + size);
+	      spin && classNames.push('fa-spin');
+	      pulse && classNames.push('fa-pulse');
+	      border && classNames.push('fa-border');
+	      fixedWidth && classNames.push('fa-fw');
+	      inverse && classNames.push('fa-inverse');
+	      flip && classNames.push('fa-flip-' + flip);
+	      rotate && classNames.push('fa-rotate-' + rotate);
+	      stack && classNames.push('fa-stack-' + stack);
+	    }
+	
+	    // Add any custom class names at the end.
+	    className && classNames.push(className);
+	    return _react2.default.createElement(tag, _extends({}, props, { 'aria-hidden': true, className: classNames.join(' ') }), ariaLabel ? _react2.default.createElement('span', { style: _screenReaderStyles2.default }, ariaLabel) : null);
+	  }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 194 */
+/*!*********************************************************!*\
+  !*** ./~/react-fontawesome/lib/screen-reader-styles.js ***!
+  \*********************************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  position: 'absolute',
+	  width: '1px',
+	  height: '1px',
+	  padding: '0px',
+	  margin: '-1px',
+	  overflow: 'hidden',
+	  clip: 'rect(0px, 0px, 0px, 0px)',
+	  border: '0px'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 195 */
+/*!****************************************************!*\
+  !*** ./~/react-number-format/lib/number_format.js ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //const React = require('react');
+	
+	
+	function escapeRegExp(str) {
+	  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+	}
+	
+	var propTypes = {
+	  thousandSeparator: _react.PropTypes.oneOf([',', '.', true, false]),
+	  decimalSeparator: _react.PropTypes.oneOf([',', '.', true, false]),
+	  displayType: _react.PropTypes.oneOf(['input', 'text']),
+	  prefix: _react.PropTypes.string,
+	  suffix: _react.PropTypes.string,
+	  format: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.func]),
+	  mask: _react.PropTypes.string,
+	  value: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string])
+	};
+	
+	var defaultProps = {
+	  displayType: 'input',
+	  decimalSeparator: '.'
+	};
+	
+	var NumberFormat = function (_React$Component) {
+	  _inherits(NumberFormat, _React$Component);
+	
+	  function NumberFormat(props) {
+	    _classCallCheck(this, NumberFormat);
+	
+	    var _this = _possibleConstructorReturn(this, (NumberFormat.__proto__ || Object.getPrototypeOf(NumberFormat)).call(this, props));
+	
+	    _this.state = {
+	      value: _this.formatInput(props.value).formattedValue
+	    };
+	    _this.onChange = _this.onChange.bind(_this);
+	    _this.onInput = _this.onInput.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(NumberFormat, [{
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(newProps) {
+	      if (newProps.value !== this.props.value) {
+	        this.setState({
+	          value: this.formatInput(newProps.value).formattedValue
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'getSeparators',
+	    value: function getSeparators() {
+	      var _props = this.props;
+	      var thousandSeparator = _props.thousandSeparator;
+	      var decimalSeparator = _props.decimalSeparator;
+	
+	      if (thousandSeparator === true) {
+	        thousandSeparator = ',';
+	      }
+	
+	      if (decimalSeparator && thousandSeparator) {
+	        decimalSeparator = thousandSeparator === ',' ? '.' : ',';
+	      }
+	
+	      if (decimalSeparator === true) {
+	        decimalSeparator = '.';
+	      }
+	
+	      return {
+	        decimalSeparator: decimalSeparator,
+	        thousandSeparator: thousandSeparator
+	      };
+	    }
+	  }, {
+	    key: 'getNumberRegex',
+	    value: function getNumberRegex(g) {
+	      var _getSeparators = this.getSeparators();
+	
+	      var decimalSeparator = _getSeparators.decimalSeparator;
+	
+	      return new RegExp('\\d' + (decimalSeparator ? '|' + escapeRegExp(decimalSeparator) : ''), g ? 'g' : undefined);
+	    }
+	  }, {
+	    key: 'setCaretPosition',
+	    value: function setCaretPosition(caretPos) {
+	      var el = this.refs.input;
+	      el.value = el.value;
+	      // ^ this is used to not only get "focus", but
+	      // to make sure we don't have it everything -selected-
+	      // (it causes an issue in chrome, and having it doesn't hurt any other browser)
+	      if (el !== null) {
+	        if (el.createTextRange) {
+	          var range = el.createTextRange();
+	          range.move('character', caretPos);
+	          range.select();
+	          return true;
+	        }
+	        // (el.selectionStart === 0 added for Firefox bug)
+	        if (el.selectionStart || el.selectionStart === 0) {
+	          el.focus();
+	          el.setSelectionRange(caretPos, caretPos);
+	          return true;
+	        }
+	
+	        // fail city, fortunately this never happens (as far as I've tested) :)
+	        el.focus();
+	        return false;
+	      }
+	    }
+	  }, {
+	    key: 'formatWithPattern',
+	    value: function formatWithPattern(str) {
+	      var _props2 = this.props;
+	      var format = _props2.format;
+	      var mask = _props2.mask;
+	
+	      if (!format) return str;
+	      var hashCount = format.split('#').length - 1;
+	      var hashIdx = 0;
+	      var frmtdStr = format;
+	
+	      for (var i = 0, ln = str.length; i < ln; i++) {
+	        if (i < hashCount) {
+	          hashIdx = frmtdStr.indexOf('#');
+	          frmtdStr = frmtdStr.replace('#', str[i]);
+	        }
+	      }
+	
+	      var lastIdx = frmtdStr.lastIndexOf('#');
+	
+	      if (mask) {
+	        return frmtdStr.replace(/#/g, mask);
+	      }
+	      return frmtdStr.substring(0, hashIdx + 1) + (lastIdx !== -1 ? frmtdStr.substring(lastIdx + 1, frmtdStr.length) : '');
+	    }
+	  }, {
+	    key: 'formatInput',
+	    value: function formatInput(val) {
+	      var _props3 = this.props;
+	      var prefix = _props3.prefix;
+	      var suffix = _props3.suffix;
+	      var mask = _props3.mask;
+	      var format = _props3.format;
+	
+	      var _getSeparators2 = this.getSeparators();
+	
+	      var thousandSeparator = _getSeparators2.thousandSeparator;
+	      var decimalSeparator = _getSeparators2.decimalSeparator;
+	
+	      var maskPattern = format && typeof format == 'string' && !!mask;
+	
+	      var numRegex = this.getNumberRegex(true);
+	
+	      //change val to string if its number
+	      if (typeof val === 'number') val = val + '';
+	
+	      if (!val || !val.match(numRegex)) return { value: '', formattedValue: maskPattern ? '' : '' };
+	      var num = val.match(numRegex).join('');
+	
+	      var formattedValue = num;
+	
+	      if (format) {
+	        if (typeof format == 'string') {
+	          formattedValue = this.formatWithPattern(formattedValue);
+	        } else if (typeof format == 'function') {
+	          formattedValue = format(formattedValue);
+	        }
+	      } else {
+	        var beforeDecimal = formattedValue,
+	            afterDecimal = '';
+	        var hasDecimals = formattedValue.indexOf(decimalSeparator) !== -1;
+	        if (decimalSeparator && hasDecimals) {
+	          var parts = formattedValue.split(decimalSeparator);
+	          beforeDecimal = parts[0];
+	          afterDecimal = parts[1];
+	        }
+	        if (thousandSeparator) {
+	          beforeDecimal = beforeDecimal.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + thousandSeparator);
+	        }
+	        //add prefix and suffix
+	        if (prefix) beforeDecimal = prefix + beforeDecimal;
+	        if (suffix) afterDecimal = afterDecimal + suffix;
+	
+	        formattedValue = beforeDecimal + (hasDecimals && decimalSeparator || '') + afterDecimal;
+	      }
+	
+	      return {
+	        value: formattedValue.match(numRegex).join(''),
+	        formattedValue: formattedValue
+	      };
+	    }
+	  }, {
+	    key: 'getCursorPosition',
+	    value: function getCursorPosition(inputValue, formattedValue, cursorPos) {
+	      var numRegex = this.getNumberRegex();
+	
+	      var j = 0;
+	      for (var i = 0; i < cursorPos; i++) {
+	        if (!inputValue[i].match(numRegex) && inputValue[i] !== formattedValue[j]) continue;
+	        while (inputValue[i] !== formattedValue[j] && j < formattedValue.length) {
+	          j++;
+	        }j++;
+	      }
+	
+	      //check if there is no number before caret position
+	      while (j > 0 && formattedValue[j]) {
+	        if (!formattedValue[j - 1].match(numRegex)) j--;else break;
+	      }
+	      return j;
+	    }
+	  }, {
+	    key: 'onChangeHandler',
+	    value: function onChangeHandler(e, callback) {
+	      var _this2 = this;
+	
+	      e.persist();
+	      var inputValue = e.target.value;
+	
+	      var _formatInput = this.formatInput(inputValue);
+	
+	      var formattedValue = _formatInput.formattedValue;
+	      var value = _formatInput.value;
+	
+	      var cursorPos = this.refs.input.selectionStart;
+	
+	      //change the state
+	      this.setState({ value: formattedValue }, function () {
+	        cursorPos = _this2.getCursorPosition(inputValue, formattedValue, cursorPos);
+	        _this2.setCaretPosition(cursorPos);
+	        if (callback) callback(e, value);
+	      });
+	
+	      return value;
+	    }
+	  }, {
+	    key: 'onChange',
+	    value: function onChange(e) {
+	      this.onChangeHandler(e, this.props.onChange);
+	    }
+	  }, {
+	    key: 'onInput',
+	    value: function onInput(e) {
+	      this.onChangeHandler(e, this.props.onInput);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var props = _extends({}, this.props);
+	
+	      Object.keys(propTypes).forEach(function (key) {
+	        delete props[key];
+	      });
+	
+	      if (this.props.displayType === 'text') {
+	        return _react2.default.createElement(
+	          'span',
+	          props,
+	          this.state.value
+	        );
+	      }
+	      return _react2.default.createElement('input', _extends({}, props, {
+	        type: 'tel',
+	        value: this.state.value,
+	        ref: 'input',
+	        onInput: this.onChange,
+	        onChange: this.onChange
+	      }));
+	    }
+	  }]);
+	
+	  return NumberFormat;
+	}(_react2.default.Component);
+	
+	NumberFormat.propTypes = propTypes;
+	NumberFormat.defaultProps = defaultProps;
+	
+	module.exports = NumberFormat;
+
+
+/***/ },
+/* 196 */
+/*!********************************!*\
+  !*** ./src/app/data/main.json ***!
+  \********************************/
 /***/ function(module, exports) {
 
 	"use strict";
 	
 	module.exports = {
-		"title": "Yep",
+		"title": "Main title",
 		"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laboriosam voluptate perferendis quaerat nam iusto fuga eligendi tenetur omnis, est sequi delectus, officiis, ex laborum assumenda dolorem maxime fugiat reiciendis!"
 	};
 
 /***/ },
-/* 194 */
+/* 197 */
 /*!*********************************!*\
   !*** ./src/app/data/table.json ***!
   \*********************************/
@@ -23982,10 +24444,10 @@
 	}];
 
 /***/ },
-/* 195 */
-/*!*********************************!*\
-  !*** ./src/app/data/chart.json ***!
-  \*********************************/
+/* 198 */
+/*!**********************************!*\
+  !*** ./src/app/data/widget.json ***!
+  \**********************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24002,7 +24464,7 @@
 	}];
 
 /***/ },
-/* 196 */
+/* 199 */
 /*!*******************************!*\
   !*** ./src/app/css/style.css ***!
   \*******************************/
@@ -24011,17 +24473,17 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./style.css */ 197);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/postcss-loader!./style.css */ 200);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 199)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 202)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./style.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./style.css");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/postcss-loader/index.js!./style.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/postcss-loader/index.js!./style.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -24031,24 +24493,24 @@
 	}
 
 /***/ },
-/* 197 */
-/*!**********************************************!*\
-  !*** ./~/css-loader!./src/app/css/style.css ***!
-  \**********************************************/
+/* 200 */
+/*!*****************************************************************!*\
+  !*** ./~/css-loader!./~/postcss-loader!./src/app/css/style.css ***!
+  \*****************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 198)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 201)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic-ext);", ""]);
 	
 	// module
-	exports.push([module.id, "body{\n  font-family: 'Open Sans', sans-serif;\n}\n.app-wrapper{\n  width: 800px;\n  margin: 30px;\n  padding: 20px;\n  border: 1px solid #aaa;\n}\n\ntd:first-child{\n  width: 10%;\n  text-align: left;\n}\ntable{border-collapse:collapse;font-size: 14px;}\nth{\n  text-align: center;\n  padding: 10px 0;\n    background: #e2f6ff;\n}\ntd{\nborder-top: 1px solid #aaa;\npadding: 6px 0;\ntext-align: center;\n}\n.react-tabs [role=tablist]{\n  padding-left: 20px;\nmargin-left: -20px;\nmargin-right: -20px;\n}\n", ""]);
+	exports.push([module.id, "body {\n    font-family: 'Open Sans',sans-serif;\n}\n\n.app-wrapper {\n    width: 800px;\n    margin: 30px;\n    padding: 20px;\n    border: 1px solid #aaa;\n}\n\na {\n    text-decoration: none;\n    color: initial;\n}\na:hover{\n  text-decoration: underline;\n}\np {\n    margin: 0;\n}\n\n.center {\n    text-align: right;\n}\n\ntd:first-child {\n    width: 55%;\n}\n\ntable {\n    border-collapse: collapse;\n    font-size: 12px;\n}\n\nth {\n    text-align: left;\n    padding: 10px 10px;\n    background: #e4ecf1;\n    border-right: 1px solid #fff;\n}\n\ntr:nth-child(2n) {\n    background-color: #f7f7f7;\n    border-radius: 2px;\n}\n\ntd {\n    border-top: 1px solid #dee3e5;\n    padding: 6px 10px;\n    border-right: 1px solid #fff;\n}\n\n.react-tabs [role=tablist] {\n    padding-left: 20px;\n    margin-left: -20px;\n    margin-right: -20px;\n}\n\n.fa-external-link {\n    padding-left: 5px;\n    color: #2b94e1;\n}\n\n.f__color{\n    color: #2b94e1;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 198 */
+/* 201 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -24107,7 +24569,7 @@
 
 
 /***/ },
-/* 199 */
+/* 202 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
